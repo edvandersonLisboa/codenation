@@ -1,0 +1,31 @@
+<html>
+    <header>
+            <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+    </header>
+    <body>
+        <h1>
+        Ola mundo!
+        </h1>
+    </body>
+    <script>
+    $.ajax({
+        url : "https://api.codenation.dev/v1/challenge/dev-ps/generate-data?token=909611507406700e44515470ab0dfce3604a076d",
+        method: "get",
+        type:"json"
+    }).done(function(msg){
+        
+        $.ajax({
+            url: "/cripitografia",
+            method: "post",
+            contentType:"application/json",
+            data:JSON.stringify(msg)
+        }).done(function(retorno){
+            console.log(retorno);
+        })
+        
+    })
+    </script>
+</html>
